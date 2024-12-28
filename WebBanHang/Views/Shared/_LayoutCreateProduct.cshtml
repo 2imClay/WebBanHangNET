@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <link rel="stylesheet" href="~/Public/css/createProduct_styles.css">
+</head>
+<body>
+    @RenderBody()
+    @model WebBanHang.Models.ProductViewModel
+
+    @{
+        ViewBag.Title = "Thêm Sản Phẩm";
+    }
+
+    <div class="container">
+        <h2>Thêm Sản Phẩm</h2>
+
+        @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, "Tên sản phẩm")
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Price, "Giá sản phẩm")
+                @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, "Mô tả")
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = 5 })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Color, "Màu sắc")
+                @Html.TextBoxFor(model => model.Color, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Quantity, "Số lượng")
+                @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Size</label>
+                @foreach (var size in Model.Sizes)
+                {
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBoxFor(m => size.IsSelected) @size.Size
+                        </label>
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Category, "Loại sản phẩm")
+                @Html.DropDownListFor(model => model.Category,
+                    new SelectList(new[] { "Quần áo", "Phụ kiện", "Giày dép" }),
+                    "-- Chọn loại sản phẩm --",
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sex, "Dành cho")
+                @Html.RadioButtonFor(model => model.Sex, "Nam") Nam
+                @Html.RadioButtonFor(model => model.Sex, "Nữ") Nữ
+                @Html.RadioButtonFor(model => model.Sex, "Unisex") Unisex
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+            </div>
+        }
+        </div>
+
+
+</body>
+</html>
