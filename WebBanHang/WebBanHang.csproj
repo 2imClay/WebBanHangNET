@@ -173,6 +173,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Public\css\cart_styles.css" />
     <Content Include="Public\css\categories_responsive.css" />
     <Content Include="Public\css\categories_styles.css" />
     <Content Include="Public\css\contact_responsive.css" />
@@ -251,6 +252,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -259,6 +261,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
@@ -298,6 +302,8 @@
     <Content Include="Views\Shared\_LayoutListProduct.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Shared\_LayoutCart.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
