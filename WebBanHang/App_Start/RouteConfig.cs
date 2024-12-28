@@ -40,7 +40,7 @@ namespace WebBanHang
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

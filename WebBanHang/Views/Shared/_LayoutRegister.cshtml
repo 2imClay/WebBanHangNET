@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <!--<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">-->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">-->
+    <link href="~/Public/css/OwlCarousel2-2.2.1/owl.carousel.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">-->
+    <link href="~/Public/css/OwlCarousel2-2.2.1/owl.theme.default.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">-->
+    <link href="~/Public/css/OwlCarousel2-2.2.1/animate.css" rel="stylesheet" />
+    <link href="~/Public/css/login_register_styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" />
+</head>
+<body>
+    @RenderBody()
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11 mt-60 mx-md-auto">
+                <div class="login-box bg-white pl-lg-5 pl-0">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-md-6">
+                            <div class="form-wrap bg-white">
+                                <h4 class="btm-sep pb-3 mb-5">Đăng kí</h4>
+                                <form class="form" method="post" action="#">
+                                    <div class="row">
+                                        <div class="col-12 form-input">
+                                            <div class="form-group position-relative">
+                                                <span class="zmdi zmdi-account"></span>
+                                                <input type="email" id="email" class="form-control" placeholder="Email của bạn">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 form-input">
+                                            <div class="form-group position-relative">
+                                                <span class="zmdi zmdi-account"></span>
+                                                <input type="text" id="name" class="form-control" placeholder="Tên tài khoản">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-30">
+                                            <button type="submit" id="submit" class="btn btn-lg btn-custom btn-dark btn-block">
+                                                Đăng kí
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="content text-center">
+                                <div class="border-bottom pb-5 mb-5">
+                                    <h3 class="c-black">Bạn đã có tài khoản ?</h3>
+                                    <a href="@Url.Action("Index", "Login")" class="btn btn-custom">Đăng nhập tại đây</a>
+                                </div>
+                                <h5 class="c-black mb-4 mt-n1">Hoặc đăng nhập với</h5>
+                                <div class="socials">
+                                    <a href="#" class="zmdi zmdi-facebook"></a>
+                                    <a href="#" class="zmdi zmdi-twitter"></a>
+                                    <a href="#" class="zmdi zmdi-google"></a>
+                                    <a href="#" class="zmdi zmdi-instagram"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<script src="js/jquery-3.2.1.min.js"></script>-->
+    <script src="~/Public/js/jquery-3.2.1.min.js"></script>
+    <!--<script src="styles/bootstrap4/popper.js"></script>-->
+    <!--<script src="styles/bootstrap4/bootstrap.min.js"></script>-->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!--<script src="plugins/Isotope/isotope.pkgd.min.js"></script>-->
+    <script src="~/Public/js/isotope.pkgd.min.js"></script>
+    <!--<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>-->
+    <script src="~/Public/css/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <!--<script src="plugins/easing/easing.js"></script>-->
+    <script src="~/Public/js/easing.js"></script>
+    <!--<script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>-->
+    <script src="~/Public/js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+</body>
+</html>
