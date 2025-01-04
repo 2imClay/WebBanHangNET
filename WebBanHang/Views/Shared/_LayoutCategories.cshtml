@@ -162,44 +162,45 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="product-grid">
-                                        @if (Model != null)
+                                        @if (Model != null && Model.Count>0)
                                         {
                                             foreach (var product in Model)
                                             {
                                                 <div class="product-item">
-                                                    <div class="product product_filter">
-                                                        <div class="product_image">
-                                                            <img src="~/Public/images/product_1.png" alt="@product.Name">
-                                                        </div>
-                                                        @if (product.Price == null)
-                                                        {
-                                                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                                                <span>XXX.XXX</span>
+                                                    <a href="@Url.Action("Details", "Single", new { id = product.Id })">
+                                                        <div class="product product_filter">
+                                                            <div class="product_image">
+                                                                <img src="~/Public/images/product_1.png" alt="@product.Name">
                                                             </div>
-                                                        }
-                                                        <div class="product_info">
-                                                            <h6 class="product_name">
-                                                                <a href="#">@product.Name</a>
-                                                            </h6>
-                                                            <div class="product_price" bis_skin_checked="1">
-                                                                @if (product.Price != null)
-                                                                {
-                                                                    @product.Price
-
-                                                                    if (product.Price > 0)
+                                                            @if (product.Price == null)
+                                                            {
+                                                                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                                                                    <span>XXX.XXX</span>
+                                                                </div>
+                                                            }
+                                                            <div class="product_info">
+                                                                <h6 class="product_name">
+                                                                    <a href="#">@product.Name</a>
+                                                                </h6>
+                                                                <div class="product_price" bis_skin_checked="1">
+                                                                    @if (product.Price != null)
                                                                     {
-                                                                        <span>@(product.Price * 1.1M)</span>
+                                                                        @(product.Price * 0.9M)
 
+                                                                        if (product.Price > 0)
+                                                                        {
+                                                                            <span>@product.Price</span>
+
+                                                                        }
                                                                     }
-                                                                }
-                                                                else
-                                                                {
-                                                                    <span>Price not available</span>
-                                                                }
+                                                                    else
+                                                                    {
+                                                                        <span>Price not available</span>
+                                                                    }
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="red_button add_to_cart_button"><a href="#">Add to Cart</a></div>
+                                                        <div class="red_button add_to_cart_button"><a href="#">Add to Cart</a></div>
                                                 </div>
                                             }
                                         }
