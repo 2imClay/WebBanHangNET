@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebBanHang.Models;
+using WebBanHang.Service;
 
 namespace WebBanHang.Controllers
 {
@@ -15,16 +16,23 @@ namespace WebBanHang.Controllers
             // Load all products from the database
             using (var db = new MyDbContext())
             {
-                //var products = db.Products.ToList(); // Lấy tất cả các sản phẩm từ cơ sở dữ liệu
+                try
+                {
+                    var products = db.Products.ToList(); // Lấy tất cả các sản phẩm từ cơ sở dữ liệu
 
-                var products = new List<Product>
-    {
-                new Product { Name = "Product 1", Price = 100 },
-                 new Product { Name = "Product 2", Price = 200 }
-    };
-
-                return View(products); // Trả về danh sách sản phẩm cho View
+                    return View(products); // Trả về danh sách sản phẩm cho View
+                } catch (Exception ex)
+                {
+                    ProductService productService = new ProductService();
+                    var products = productService.GetAll();
+                    return View(products);
+                }
             }
+
+            //ProductConnector connector = new ProductConnector();
+            //var products = connector.GetAll();
+            //return View(products);
+
         }
     }
 }

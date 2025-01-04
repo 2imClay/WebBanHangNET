@@ -7,9 +7,12 @@ using System.Web;
 namespace WebBanHang.Models
 {
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
+    [Table("products")]
     public class Product
     {
+        [Key]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Tên sản phẩm là bắt buộc")]
@@ -37,6 +40,8 @@ namespace WebBanHang.Models
         public string Category { get; set; }
 
         public string Sex { get; set; }
+
+        public string imageURL { get; set; }
     }
 
 
